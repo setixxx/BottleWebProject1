@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/main.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/section.css" />
+    % if title == 'Section 4 - Graph Coloring':
+        <link rel="stylesheet" type="text/css" href="/static/content/section4_styles.css" />
+    % end
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
@@ -21,7 +24,7 @@
             <a href="/section1" class="nav-item{{ ' active' if title == 'Section 1' else '' }}">Section 1</a>
             <a href="/section2" class="nav-item{{ ' active' if title == 'Section 2' else '' }}">Section 2</a>
             <a href="/section3" class="nav-item{{ ' active' if title == 'Section 3' else '' }}">Section 3</a>
-            <a href="/section4" class="nav-item{{ ' active' if title == 'Section 4' else '' }}">Section 4</a>
+            <a href="/section4" class="nav-item{{ ' active' if title == 'Section 4 - Graph Coloring' else '' }}">Section 4</a>
         </div>
 
         {{ !base }}
@@ -34,5 +37,5 @@
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>
     <script src="/static/scripts/respond.js"></script>
-</body>
+    </body>
 </html>

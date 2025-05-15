@@ -1,0 +1,249 @@
+/* Styles for Section 4: Graph Coloring */
+
+.section4-content h2, .section4-content h3 {
+    color: #333; /* Darker text for titles within the lighter section4 background */
+}
+
+.section4-content p, .section4-content label, .section4-content small, .section4-content th, .section4-content td {
+    color: #454545; /* Slightly lighter than black for readability */
+}
+
+/* Collapsible Theory Section */
+.collapsible {
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Consistent with other elements */
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly more opaque */
+}
+
+.collapsible-header {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50; /* Dark blue for header */
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px 8px 0 0;
+    display: block; /* Make summary act like a block */
+}
+
+.collapsible-header:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.collapsible-content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for content */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 8px 8px;
+    color: #333; /* Ensure theory text is readable */
+}
+
+.collapsible-content h1, .collapsible-content h2, .collapsible-content h3 {
+    color: #2c3e50;
+}
+.collapsible-content code {
+    background-color: #e9e9e9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+.collapsible-content pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+.collapsible-content table {
+    width: auto; /* Let table size naturally */
+    min-width: 50%;
+    margin: 15px 0;
+    border-collapse: collapse;
+    color: #333;
+}
+.collapsible-content th, .collapsible-content td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    color: #333; /* Override general white text for tables in theory */
+}
+.collapsible-content th {
+    background-color: #e9e9e9;
+}
+
+
+/* Practical Implementation Section Layout */
+.practical-flex-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between input and results */
+}
+
+.input-area {
+    flex: 1; /* Takes available space */
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.results-area {
+    flex: 1.5; /* Takes more space if available */
+    min-width: 400px; /* Minimum width */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+/* Interactive Matrix Input */
+#matrix_input_container {
+    display: grid;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    /* Grid columns will be set by JS or implicitly by matrix-row content */
+}
+
+.matrix-row {
+    display: flex;
+    gap: 5px;
+}
+
+.matrix-cell {
+    width: 35px; /* Adjust as needed */
+    height: 35px;
+    text-align: center;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px; /* Consistent with form-control */
+    padding: 5px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+.matrix-cell:read-only {
+    background-color: #e9ecef; /* Bootstrap's disabled background color */
+    cursor: not-allowed;
+}
+
+
+/* Form elements within section4 */
+.section4-content .form-group {
+    margin-bottom: 20px;
+}
+
+.section4-content .form-control {
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque for better readability */
+    border-radius: 8px;
+    padding: 10px;
+    width: auto; /* Adjust width as necessary, e.g., for num_vertices */
+    max-width: 150px; /* For number of vertices input */
+    color: #333;
+    border: 1px solid #ced4da; /* Standard border */
+}
+.section4-content .form-control#num_vertices {
+    width: 100px;
+}
+
+
+.section4-content .btn-primary {
+    background-color: #5d8fc9; /* Existing button color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.section4-content .btn-primary:hover {
+    background-color: #4a7cb3; /* Darker hover */
+}
+
+/* Results Section (Right side) */
+.results-section {
+    margin-top: 0; /* Adjusted as it's now part of flex layout */
+    padding: 0; /* Padding is on results-area */
+    background-color: transparent; /* No double background */
+}
+
+/* Horizontal Color Assignment Table */
+.color-map {
+    margin-bottom: 20px;
+    overflow-x: auto; /* For smaller screens if table is too wide */
+}
+
+.table-horizontal {
+    width: auto; /* Let table define its width based on content */
+    min-width: 100%; /* Try to use full width of its container */
+    border-collapse: collapse;
+    color: #454545;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.table-horizontal th, .table-horizontal td {
+    padding: 8px 12px; /* More padding */
+    text-align: center; /* Center align for horizontal table */
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Clearer borders */
+}
+
+.table-horizontal th {
+    background-color: rgba(0, 0, 0, 0.07); /* Light background for headers */
+    font-weight: bold;
+}
+
+.graph-visualization img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid rgba(0,0,0,0.1); /* Subtle border for the image */
+    background-color: white; /* if image has transparency */
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.85); /* More opaque error */
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Ensure general section styling is applied if needed */
+.section4-content {
+    padding: 30px;
+    /* background-color already defined in section.css as #BCDAE2, keeping it */
+    border-radius: 15px; /* Reduced from 40px to match inner elements */
+}
+
+.back-button {
+    display: block;
+    width: fit-content; /* Adjust width to content */
+    margin: 30px auto 20px auto; /* More margin top */
+    padding: 12px 25px;
+    background-color: #5d8fc9;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 20px; /* Consistent with buttons */
+    transition: background-color 0.3s;
+}
+.back-button:hover {
+    background-color: #4a7cb3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .practical-flex-container {
+        flex-direction: column; /* Stack input and results on smaller screens */
+    }
+    .input-area, .results-area {
+        min-width: 100%; /* Full width when stacked */
+    }
+    .matrix-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8em;
+    }
+}
