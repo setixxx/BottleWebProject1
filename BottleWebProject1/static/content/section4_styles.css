@@ -247,3 +247,134 @@
         font-size: 0.8em;
     }
 }
+
+/* Additional CSS for Section 4: Graph Coloring */
+
+/* Matrix styling with row and column indices */
+.matrix-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    overflow-x: auto; /* Allow horizontal scrolling for large matrices */
+}
+
+.matrix-header-row {
+    display: flex;
+    margin-left: 35px; /* Space for row index column */
+}
+
+.matrix-header-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #454545;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.matrix-row {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.matrix-row-index {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #454545;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.matrix-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    background-color: #9FC6E7; /* Light blue to match the theme */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #8cb3d9;
+}
+
+/* Loading area for test graph */
+.loading-area {
+    text-align: center;
+    padding: 20px;
+    color: #454545;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Make sure matrix stays within its container */
+.matrix-input-grid {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .matrix-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .matrix-cell {
+        width: 30px;
+        height: 30px;
+    }
+
+    .matrix-header-cell,
+    .matrix-row-index {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Adjust matrix cell sizes for larger matrices */
+@media (min-width: 769px) {
+    .matrix-cell,
+    .matrix-header-cell,
+    .matrix-row-index {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Styles for matrices with more than 9 vertices */
+@media (min-width: 1200px) {
+    .input-area {
+        max-width: 45%;
+    }
+}
+
+/* For really large matrices, reduce cell size */
+@media (max-width: 1200px) {
+    .matrix-cell.small,
+    .matrix-header-cell.small,
+    .matrix-row-index.small {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8em;
+    }
+}

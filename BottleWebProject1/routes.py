@@ -1,5 +1,5 @@
 """
-Updated routes module to include the graph coloring section.
+Updated routes module to include the graph coloring section with auto-display on initial load.
 """
 
 import os
@@ -62,11 +62,11 @@ def section3():
 @route('/section4')
 @view('section4')
 def section4_get():
-    """Renders section 4 - Graph Coloring (GET request)."""
+    """Renders section 4 - Graph Coloring (GET request) with auto-displayed results."""
     theory_content = load_theory()
     # Provide default values for initial rendering
     num_vertices = 6 # Default number of vertices
-    # Create a default matrix for display if needed, or let JS handle initial empty state
+    # Create a default matrix for display
     default_adj_matrix = [
         [0,1,1,1,0,0],
         [1,0,1,0,1,0],
@@ -76,17 +76,19 @@ def section4_get():
         [0,0,1,1,1,0]
     ]
 
+    # Process the default graph coloring on initial GET to display results immediately
+    coloring_results = process_graph_coloring_request(raw_matrix=default_adj_matrix, strategy="largest_first")
+
     return dict(
         year=datetime.now().year,
         theory_content=theory_content,
         num_vertices=num_vertices,
-        adjacency_matrix_values=default_adj_matrix, # Pass this for pre-filling
-        # No graph results on initial GET
-        graph_img=None,
-        num_colors=None,
-        node_colors=None,
+        adjacency_matrix_values=default_adj_matrix,
+        graph_img=coloring_results.get('graph_img'),
+        num_colors=coloring_results.get('num_colors'),
+        node_colors=coloring_results.get('node_colors'),
         strategy='largest_first', # Strategy is fixed
-        error=None
+        error=coloring_results.get('error', None)
     )
 
 @route('/section4', method='POST')
@@ -145,11 +147,6 @@ def section4_post():
         )
 
     # Process graph coloring (pass the reconstructed matrix)
-    # The process_graph_coloring_request function in graph_theory_handler
-    # will need to accept this raw matrix.
-    # For now, we assume it does, or we adapt it.
-    # We'll pass the matrix directly, not the form_data object for matrix.
-
     # The strategy is fixed to "largest_first"
     strategy = "largest_first"
     coloring_results = process_graph_coloring_request(raw_matrix=adj_matrix, strategy=strategy)
